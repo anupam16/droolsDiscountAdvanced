@@ -1,0 +1,20 @@
+template header
+  rulename
+  action
+  value
+
+package rules;
+
+import com.springproject.droolEngineProject.model.Order;
+
+template "tmp1"
+
+rule "@{rulename}"
+  dialect "mvel"
+  when
+     orderObject : Order(@{action});
+  then
+    orderObject.setDiscount(@{value});
+end
+
+end template
